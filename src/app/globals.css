@@ -1,0 +1,266 @@
+/* Updated: 2025-12-09T14:01:34.606Z */
+/* Updated: 2025-12-09T12:10:21.478Z */
+/* Updated: 2025-12-08T21:25:14.764Z */
+/* Updated: 2025-12-07T16:16:23.464Z */
+/* Updated: 2025-12-07T16:10:08.917Z */
+/* Updated: 2025-12-07T16:09:26.632Z */
+/* Updated: 2025-12-07T15:28:00.554Z */
+/* Updated: 2025-12-07T15:27:02.760Z */
+/* Updated: 2025-12-07T15:00:38.131Z */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bomstad+Display+Bold&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Shadcn/UI colors - Dark Theme */
+  --color-background: #0A0A0A;
+  --color-foreground: #FFFFFF;
+
+  --color-card: #1F1F1F;
+  --color-card-foreground: #FFFFFF;
+
+  --color-popover: #141414;
+  --color-popover-foreground: #FFFFFF;
+
+  --color-primary: #D15449; /* Accent gradient start */
+  --color-primary-foreground: #FFFFFF;
+
+  --color-secondary: #1A1A1A;
+  --color-secondary-foreground: #FFFFFF;
+
+  --color-muted: #1A1A1A;
+  --color-muted-foreground: #C7C7C7;
+
+  --color-accent: #E88B4E; /* Accent gradient mid */
+  --color-accent-foreground: #FFFFFF;
+
+  --color-destructive: #6B3A3A; /* Warning Red */
+  --color-destructive-foreground: #FFFFFF;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: #1A1A1A;
+  --color-ring: #D15449; /* Primary accent */
+
+  --color-chart-1: #D15449;
+  --color-chart-2: #E88B4E;
+  --color-chart-3: #F2B263;
+  --color-chart-4: #4A6B4A; /* Success Green */
+  --color-chart-5: #6B3A3A; /* Warning Red */
+
+  --color-sidebar: #141414;
+  --color-sidebar-foreground: #FFFFFF;
+  --color-sidebar-primary: #D15449;
+  --color-sidebar-primary-foreground: #FFFFFF;
+  --color-sidebar-accent: #1A1A1A;
+  --color-sidebar-accent-foreground: #FFFFFF;
+  --color-sidebar-border: rgba(255, 255, 255, 0.1);
+  --color-sidebar-ring: #D15449;
+
+  --radius-lg: 1.5rem; /* 24px */
+  --radius-md: 1rem; /* 16px */
+  --radius-sm: 0.5rem; /* 8px */
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  /* Custom Design Tokens */
+  --color-background-primary: #0A0A0A;
+  --color-background-secondary: #141414;
+  --color-background-tertiary: #1A1A1A;
+  --color-background-light: #E8E5E0; /* For light sections */
+  --color-background-light-alt: #F5F3F0; /* For light sections */
+  --color-background-card: #1F1F1F;
+  --color-background-card-alt: #252525;
+
+  --color-accent-gradient-start: #D15449;
+  --color-accent-gradient-mid: #E88B4E;
+  --color-accent-gradient-end: #F2B263;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #C7C7C7;
+  --color-text-tertiary: #B8B8B8;
+  --color-text-dark: #1E1E1E; /* For text on light backgrounds */
+  --color-text-dark-alt: #2D2D2D; /* For text on light backgrounds */
+
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+
+  --color-success-green: #4A6B4A;
+  --color-warning-red: #6B3A3A;
+
+  --font-display: "Bomstad Display Bold", sans-serif;
+  --font-body: "Satoshi", sans-serif;
+  --font-secondary: "Lato", sans-serif;
+}
+
+/*
+  The default border color has changed to currentColor in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --chart-1: var(--color-chart-1);
+    --chart-2: var(--color-chart-2);
+    --chart-3: var(--color-chart-3);
+    --chart-4: var(--color-chart-4);
+    --chart-5: var(--color-chart-5);
+    --radius: var(--radius-md); /* Default radius */
+    --sidebar-background: var(--color-sidebar);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-sidebar-primary);
+    --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
+    --sidebar-ring: var(--color-sidebar-ring);
+  }
+
+  /* No .dark block as the theme is dark by default */
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: 4.5rem; /* 72px */
+  }
+
+  h2 {
+    font-size: 3.25rem; /* 52px */
+  }
+
+  h3 {
+    font-size: 2rem; /* 32px */
+  }
+
+  h4 {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  p {
+    font-size: 1rem; /* 16px */
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, var(--color-accent-gradient-start) 0%, var(--color-accent-gradient-mid) 50%, var(--color-accent-gradient-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-secondary {
+    font-family: var(--font-secondary);
+  }
+
+  .container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
